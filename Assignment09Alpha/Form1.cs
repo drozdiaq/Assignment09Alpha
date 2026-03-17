@@ -104,12 +104,12 @@ namespace Assignment09Alpha
             }
             */
 
-            ///*
+            /*
             clbCondiments.DataSource = condimentList;
             clbCondiments.DataTextField = "Name"; // Property for display text
             clbCondiments.DataValueField = "ID";   // Property for the underlying value
             clbCondiments.DataBind();
-            //*/
+            */
 
 
 
@@ -120,4 +120,4 @@ namespace Assignment09Alpha
 
         }
     }
-}
+
