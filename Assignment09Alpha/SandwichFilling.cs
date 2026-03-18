@@ -42,7 +42,7 @@ namespace Assignment09Alpha
         // Method
         public override string ToString()
         {
-            return this.filling;
+            return filling;
         }
     }
 }

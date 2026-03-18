@@ -12,8 +12,30 @@ namespace Assignment09Alpha
         private Bread bread;
         private SandwichFilling filling;
         private List<Condiment> condiments;
-        private const string slogan = "";
 
+        public const string slogan = "fresh ingredients, bold sandwiches";
+        public Sandwich(Bread bread, SandwichFilling filling, List<Condiment> condiments)
+        {
+            this.bread = bread;
+            this.filling = filling;
+            this.condiments = condiments;
+
+        }
+
+        public Bread getBread()
+        {
+            return this.bread;
+        }
+
+        public SandwichFilling getFilling()
+        {
+            return this.filling;
+        }
+
+        public List<Condiment> getCondiments()
+        {
+            return this.condiments;
+        }
 
     }
 }

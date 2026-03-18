@@ -34,9 +34,7 @@ namespace Assignment09Alpha
         }
         public override string ToString()
         {
-            return string.Format(
-                "Bread Name: {0}", "Bread Calories: {1:F3}",
-                name, breadCalories);
+            return name;
         }
     }
 }

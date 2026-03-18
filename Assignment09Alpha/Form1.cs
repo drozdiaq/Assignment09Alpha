@@ -18,14 +18,13 @@ namespace Assignment09Alpha
             InitializeComponent();
         }
 
+        //option lists
+        List<Bread> breadList = new List<Bread>();
+        List<SandwichFilling> fillingList = new List<SandwichFilling>();
+        List<Condiment> condimentList = new List<Condiment>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Bread> breadList = new List<Bread>();
-            List<SandwichFilling> fillingList = new List<SandwichFilling>();
-            List<Condiment> condimentList = new List<Condiment>();
-
-
-
             //load all bread options
             StreamReader inputFile;
             if (File.Exists("Bread.txt"))
@@ -88,19 +87,51 @@ namespace Assignment09Alpha
             //load lists into comboboxes
             foreach (Bread b in breadList)
             {
-                cmbBread.Items.Add(b.getBreadName());
+                cmbBread.Items.Add(b);
             }
+            cmbBread.SelectedIndex = 0;
             foreach (SandwichFilling f in fillingList)
             {
-                cmbFillings.Items.Add(f.getFilling());
+                cmbFillings.Items.Add(f);
             }
+            cmbFillings.SelectedIndex = 0;
             foreach (Condiment c in condimentList)
             {
-                clbCondiments.Items.Add(c.getName());
+                clbCondiments.Items.Add(c);
             }
+        }
+
+        //summarize order
+        private void btnSum_Click(object sender, EventArgs e)
+        {
+            //create sandwich object from user selections
+            Bread bread = (Bread)cmbBread.SelectedItem;
+            SandwichFilling filling = (SandwichFilling)cmbFillings.SelectedItem;
+            List<Condiment> condiments = new List<Condiment>();
+            clbCondiments.CheckedItems.Cast<Condiment>().ToList().ForEach(c => condiments.Add(c));
+
+            Sandwich sandwich = new Sandwich(bread, filling, condiments);
+            int calories = bread.getBreadCalories() + filling.getCalories() + condiments.Sum(c => c.getCals());
 
 
+            string condimentNames = string.Join(", ", condiments.Select(c => c.getName()));
+            string message = "Slogan\nBread: " + sandwich.getBread() + "\nFillings: " + sandwich.getFilling() + "\nCondiments: " + condimentNames + "\nTotal Calories: " + calories;
+            MessageBox.Show(message, "Sandwich");//Remember to add slogan. totalCalories variable is just a placeholder for now.
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Clear the checked state of all items (ClearSelected only clears selection highlight)
+            for (int i = 0; i < clbCondiments.Items.Count; i++)
+            {
+                clbCondiments.SetItemChecked(i, false);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
