@@ -72,12 +72,14 @@
             // lblSlogan
             // 
             this.lblSlogan.AutoSize = true;
-            this.lblSlogan.Location = new System.Drawing.Point(549, 14);
+            this.lblSlogan.Location = new System.Drawing.Point(242, 9);
             this.lblSlogan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(51, 20);
+            this.lblSlogan.Size = new System.Drawing.Size(633, 60);
             this.lblSlogan.TabIndex = 3;
-            this.lblSlogan.Text = "label1";
+            this.lblSlogan.Text = "Welcome to our sandwich shop!\r\nPlease make your selections with your mouse or usi" +
+    "ng the Tab key, arrows and spacebar.\r\nPress enter to summarize.";
+            this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnSum
             // 

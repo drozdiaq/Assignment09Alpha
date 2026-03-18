@@ -115,8 +115,12 @@ namespace Assignment09Alpha
 
 
             string condimentNames = string.Join(", ", condiments.Select(c => c.getName()));
-            string message = "Slogan\nBread: " + sandwich.getBread() + "\nFillings: " + sandwich.getFilling() + "\nCondiments: " + condimentNames + "\nTotal Calories: " + calories;
-            MessageBox.Show(message, "Sandwich");//Remember to add slogan. totalCalories variable is just a placeholder for now.
+            if (condimentNames == "")
+            {
+                condimentNames = "no condiments";
+            }
+            string message = sandwich.getFilling() + " with " + condimentNames + " on " + sandwich.getBread() + "\n\nTotal calories: " + calories;
+            MessageBox.Show(message, Sandwich.slogan);//Remember to add slogan. totalCalories variable is just a placeholder for now.
 
         }
 
