@@ -18,13 +18,15 @@ namespace Assignment09Alpha
             InitializeComponent();
         }
 
-        //option lists
-        List<Bread> breadList = new List<Bread>();
-        List<SandwichFilling> fillingList = new List<SandwichFilling>();
-        List<Condiment> condimentList = new List<Condiment>();
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //option lists
+            List<Bread> breadList = new List<Bread>();
+            List<SandwichFilling> fillingList = new List<SandwichFilling>();
+            List<Condiment> condimentList = new List<Condiment>();
+
             //load all bread options
             StreamReader inputFile;
             if (File.Exists("Bread.txt"))
@@ -120,7 +122,7 @@ namespace Assignment09Alpha
                 condimentNames = "no condiments";
             }
             string message = sandwich.getFilling() + " with " + condimentNames + " on " + sandwich.getBread() + "\n\nTotal calories: " + calories;
-            MessageBox.Show(message, Sandwich.slogan);//Remember to add slogan. totalCalories variable is just a placeholder for now.
+            MessageBox.Show(message, Sandwich.slogan);
 
         }
 
@@ -140,3 +142,16 @@ namespace Assignment09Alpha
     }
 }
 
+/*
+
+What concepts did your team find challenging about this program? (Please be specific)
+figuring out how to load the files properly and how to solve how to solve the combobox loading/retirieving
+
+What did your team learn in this program? (Please be specific)
+that windows form collections can be very easily populated with classes with proper ToString() overrides and that you can easily retrieve the selected item as the class type
+
+List the names of everyone on the team and give each member a percentage base on their contribution and explain why you gave them that percentage.
+Ignacy Drozd 50%
+Charlie coyle 25%
+Jordan Carriera 25%
+*/
