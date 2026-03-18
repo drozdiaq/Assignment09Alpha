@@ -19,12 +19,12 @@ namespace Assignment09Alpha
         }
 
         // Accessors
-        public string getFilling(string filling)
+        public string getFilling()
         {
             return filling;
         }
 
-        public int getCalories(int calories)
+        public int getCalories()
         {
             return calories;
         }

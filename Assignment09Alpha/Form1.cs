@@ -36,7 +36,7 @@ namespace Assignment09Alpha
                     string name = inputFile.ReadLine();
                     int cals = 0;
                     int.TryParse(inputFile.ReadLine(), out cals);
-                    Bread temp = new Bread(name,cals);
+                    Bread temp = new Bread(name, cals);
                     breadList.Add(temp);
                 }
                 inputFile.Close();
@@ -66,9 +66,9 @@ namespace Assignment09Alpha
             }
 
             //load condiment options
-            if (File.Exists("Condiments.txt"))
+            if (File.Exists("Condiment.txt"))
             {
-                inputFile = File.OpenText("Condiments.txt");
+                inputFile = File.OpenText("Condiment.txt");
                 while (!inputFile.EndOfStream)
                 {
                     string name = inputFile.ReadLine();
@@ -86,38 +86,22 @@ namespace Assignment09Alpha
 
 
             //load lists into comboboxes
-            cmbBread.DataSource = breadList;
-            cmbBread.DisplayMember = "name";
-            cmbBread.ValueMember = "cals";
-
-            cmbFillings.DataSource = fillingList;
-            cmbFillings.DisplayMember = "name";
-            cmbFillings.ValueMember = "cals";
-
-            /*
-            foreach (Condiment cond in condimentList)
+            foreach (Bread b in breadList)
             {
-                // The second parameter (false in this case) indicates whether the item should be checked initially
-                clbCondiments.Items.Add(cond.getName(), false);
-                // Or add the object directly if you need access to its properties later
-                // checkedListBoxDepts.Items.Add(user);
+                cmbBread.Items.Add(b.getBreadName());
             }
-            */
-
-            /*
-            clbCondiments.DataSource = condimentList;
-            clbCondiments.DataTextField = "Name"; // Property for display text
-            clbCondiments.DataValueField = "ID";   // Property for the underlying value
-            clbCondiments.DataBind();
-            */
-
-
-
-
-        }
+            foreach (SandwichFilling f in fillingList)
+            {
+                cmbFillings.Items.Add(f.getFilling());
+            }
+            foreach (Condiment c in condimentList)
+            {
+                clbCondiments.Items.Add(c.getName());
+            }
 
 
 
         }
     }
+}
 

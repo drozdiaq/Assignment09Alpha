@@ -9,16 +9,16 @@ namespace Assignment09Alpha
     internal class Bread
     {
         private int breadCalories;
-        private string breadName;
+        private string name;
 
         public Bread(string breadName, int breadCalories)
         {
-            this.breadName = breadName;
+            this.name = breadName;
             this.breadCalories = breadCalories;
         }
         public string getBreadName()
         {
-            return breadName;
+            return name;
         }
         public int getBreadCalories()
         {
@@ -26,7 +26,7 @@ namespace Assignment09Alpha
         }
         private void setBreadName(string breadName)
         {
-            this.breadName = breadName;
+            this.name = breadName;
         }
         private void setBreadCalories(int breadCalories)
         {
@@ -36,7 +36,7 @@ namespace Assignment09Alpha
         {
             return string.Format(
                 "Bread Name: {0}", "Bread Calories: {1:F3}",
-                breadName, breadCalories);
+                name, breadCalories);
         }
     }
 }
